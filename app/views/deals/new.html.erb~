@@ -1,0 +1,8 @@
+<table lign="center">
+
+<td><h3>New deal</h3></td>
+<table>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', deals_path %>

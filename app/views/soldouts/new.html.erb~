@@ -1,0 +1,8 @@
+<table align="center">
+<td>
+<h3>Card Details</h3>
+</td>
+</table>
+<%= render 'form' %>
+
+<%= link_to 'Back', deals_path %>

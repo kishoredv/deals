@@ -1,0 +1,44 @@
+<br>
+<table align="center">
+<td>
+<h3>Your Profile<h3>
+</table>
+
+
+<% if @ids.include?(current_user.id) %> 
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <b>First name:</b>
+    <%= @profile.first_name %>
+  </p>
+
+  <p>
+    <b>Last name:</b>
+    <%= @profile.last_name %>
+  </p>
+
+  <p>
+    <b>Working:</b>
+    <%= @profile.headline %>
+  </p>
+
+  
+
+  <p>
+    <b>Designation:</b>
+    <%= @profile.designation %>
+  </p>
+
+
+  <%= link_to 'Edit Your Profile', edit_profile_path(@profile) %> 
+  <%#= link_to 'Back', profiles_path %>
+
+<% else %> <br>
+  <h3>To get more offers register your details here..</h3>
+  <br />
+  <%= link_to 'Create Profile manually', new_profile_path %>
+
+  <br/><br/>
+  <%= link_to "Profile with linkedIn", linkedin_index_profiles_path %>
+<% end %>

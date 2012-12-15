@@ -1,0 +1,29 @@
+<br><br>
+
+<table align="center">
+<td>
+<h3>Cleared Deals Details</h3>
+</tb>
+</table>
+<table>
+  <tr>
+    <th>Customer name</th>
+    <th>Customer email</th>
+   
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @soldouts.each do |soldout| %>
+  <tr>
+    <td><%= soldout.customer_name %></td>
+    <td><%= soldout.customer_email %></td>
+    <td><%= link_to 'Show', soldout %></td>
+    <td><%= link_to 'Destroy', soldout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'More Deals', deals_path %>

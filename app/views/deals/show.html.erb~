@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @deal.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @deal.description %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @deal.company %>
+</p>
+<p>
+  <b>Image:</b>
+
+  <%= image_tag(@deal.image_url) if @deal.image? %>
+
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @deal.price %>
+</p>
+
+<p>
+  <b>Offers:</b>
+  <%= @deal.offers %>
+</p>
+
+<%= gmaps4rails(@map) %>
+<%= yield :scripts %>
+
+<p>
+  <b>Address:</b>
+  <%= @deal.address %>
+</p>
+<% if user_signed_in? %>
+  <% if is_admin? or @deal.user_id == current_user.id  %>
+    <%= link_to 'Edit', edit_deal_path(@deal) %> |
+
+  <% end %>
+<% end %>
+<% if user_signed_in? %>
+  <% if @deal.user_id != current_user.id %>
+    <%= link_to 'Buy', new_soldout_path %> |
+  <% else %>
+    Your Deal |
+  <% end %>
+    <% else %>
+      <%= link_to 'Buy', new_soldout_path %> |
+
+<% end %>
+<%= link_to 'Back', deals_path %>

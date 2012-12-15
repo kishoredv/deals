@@ -1,0 +1,28 @@
+
+<br><br><br>
+
+<table align="center">
+<td><h3>Sign Up </h3></td>
+</table
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+<fieldset>
+<legend><b>Enter User Details</b></legend>
+
+  <div align="center"><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div align="center"><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div align="center"><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div align="center"><%= f.submit "Submit" %></div>
+
+</fieldset>
+<% end %>
+
+<%= render "devise/shared/links" %>

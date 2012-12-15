@@ -1,0 +1,11 @@
+<br>
+<table align="center">
+<td>
+<h3>Profile Creation<h3>
+</table>
+<br><br><br><br>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Back', profiles_path %>

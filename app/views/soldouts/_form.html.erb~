@@ -1,0 +1,41 @@
+<%= form_for(@soldout) do |f| %>
+  <% if @soldout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@soldout.errors.count, "error") %> prohibited this soldout from being saved:</h2>
+
+      <ul>
+        <% @soldout.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_name %><br />
+    <%= f.text_field :customer_name %>
+  </div>
+  <% if user_signed_in? %>
+
+  <% else %>
+    <div class="field">
+      <%= f.label :customer_email %><br />
+      <%= f.text_field :customer_email %>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :card_number %><br />
+    <%= f.text_field :card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :expiry_date_Month_Year %><br />
+    <%= f.text_field :expiry_date_month %>  <%= f.text_field :expiry_date_year %>
+  </div>
+  <div class="field">
+    <%= f.label :cvv %><br />
+    <%= f.password_field :cvv %>
+  </div>
+  <div class="actions">
+    <%= f.submit "pay" %>
+  </div>
+<% end %>

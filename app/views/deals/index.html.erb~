@@ -1,0 +1,66 @@
+<br>
+<table align="center">
+<td>
+<h2>Escapes</h2>
+<td>
+</table><br>
+
+
+<table border ="2">
+  <tr>
+    <th>Escape</th>
+ 
+   
+    <th>Price</th>
+    <th>Offers</th>
+    <th>Address</th>
+   <!-- <th></th>
+    <th></th>
+    <th></th>
+    <th></th>-->
+
+  </tr>
+
+
+
+
+
+
+
+
+  <% @deals.each do |deal| %>
+    <tr>
+      <td><%= deal.name %></td>
+    
+     
+      <td><%= deal.price %></td>
+      <td><%= deal.offers %></td>
+      <td><%= deal.address %></td>
+
+<td><%= link_to (image_tag deal.image, :style => "height:100px"), deal %>
+
+      <td><%= link_to 'View', deal %></td>
+
+      <% if user_signed_in? %>
+        <% if is_admin? or deal.user_id == current_user.id %>
+          <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
+          <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if is_admin? and deal.user_id == current_user.id %>
+          <td>Your deal</td>
+        <% end %>
+      <% end %>
+
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+  <%= link_to 'Add Deal', new_deal_path %>
+  <% if is_admin? %>
+    <%= link_to "Sold Out Details", soldouts_path  %>
+  <% end %>
+<% end %>

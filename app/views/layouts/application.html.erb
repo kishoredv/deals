@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Escape2</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <% flash.each do |name, msg| %>
+
+      <% if msg.class == Array %>
+        <% msg.each do |message| %>
+          <%= content_tag :div, message, :id => "flash_#{name}" %>
+        <% end %>
+      <% else %>
+
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+
+      <% end %>
+    <% end %>
+
+  </head>
+  <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+    <div id='header'>
+      <!-- Header Image Displayes here -->
+    </div>
+    <div id='menu'>
+      <!-- Header Image Displayes here -->
+
+
+      <div align="center" id="navbar">
+        <ul>
+          <li><a href="/deals">Home</a></li>
+          <li><a href="/deals">About Us</a></li>
+          <li><a href="/deals">Contact Us</a></li>
+          <li><a href="/users/sign_in">Sign In</a></li>
+          <li><a href="/users/sign_up">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div id='container'>
+        <div id='content'>
+
+
+
+          <% if user_signed_in? %>
+            Welcome ! <%= current_user.email %>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+
+            <%= link_to "Your Profile", profiles_path %>
+          <% else %>
+      <!--  <%#= link_to "Sign up", new_user_registration_path %> or <%#= link_to "sign in", new_user_session_path %> <!--to post a Deal-->
+          <% end %>
+		  <div class="fb-like" data-href="http://0.0.0.0:3000/deals" data-send="false" data-width="450" data-show-faces="true"></div>
+
+          <%= yield %>
+
+
+        </div>
+        <div id='footer'>
+          <h6 class="footertext">&copy; Escape2.com:2012</h6>
+        </div>
+
+
+
+        </body>
+        </html>
+
+
