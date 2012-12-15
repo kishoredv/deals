@@ -1,20 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# encoding: utf-8 
+# -*- coding: utf-8 -*-
 puts "Inserting static data into database..."
 ActiveRecord::Base.connection.execute("
 insert into deals(id,name,description,price,offers,longitude,latitude,address,created_at,updated_at,gmaps,image,city,state,postal_code,country,street,user_id,company) values ('8','€88 for a Luxury Overnight Stay for 2 at The Gresham, Dublin with Cream Tea, Breakfast & Late Check Out (value up to €176)',' Fancy a luxurious night away in Dublin city center? Pay just €88 for a night for 2 at The Gresham, Upper O Connell Street. It is  a deal valued at €176 and includes a delicious cream tea plus late check out. Spoil a loved one this Christmas with an elegant night away.Great location for Christmas shopping.Book within seven days to get the best possible choice of dates.','88£','50 % Discount','-6.260294999999999','53.3516597','23 Upper OConnell Street','Dublin 1','Dublin','Ireland,','2012-12-15 05:29:19.635650','2012-12-15 07:43:11.196893','t','ib4dlk.jpg','Dublin 1','Dublin','Ireland','23 Upper O Connell Street','5','The Gresham Hotel');
